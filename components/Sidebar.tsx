@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-// import Drawer from '@material-ui/core/Drawer';
+import Drawer from '@material-ui/core/Drawer';
 // import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -11,8 +11,15 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { withStyles, WithStyles } from '@material-ui/core/styles';
 
 library.add(fab, faHome, faEnvelope);
+
+const styles = theme => ({
+  drawerPaper: {
+    width: 150,
+  },
+});
 
 interface SidebarItem {
   text: string;
@@ -23,11 +30,17 @@ const sidebarItems: SidebarItem[] = [
   { text: 'Home', icon: <FontAwesomeIcon icon="home" /> },
   { text: 'GitHub', icon: <FontAwesomeIcon icon={['fab', 'github']} /> },
   { text: 'twitter', icon: <FontAwesomeIcon icon={['fab', 'twitter']} /> },
-  { text: 'Contact Me', icon: <FontAwesomeIcon icon="envelope" /> },
+  { text: 'Contact', icon: <FontAwesomeIcon icon="envelope" /> },
 ];
 
-const Sidebar: React.FC<{}> = () => (
-  <div id="sidebar">
+const Sidebar: React.FC<WithStyles> = ({ classes }) => (
+  <Drawer
+    classes={{
+      paper: classes.drawerPaper,
+    }}
+    variant="permanent"
+    open
+  >
     <Divider />
     <List>
       <ListItem>
@@ -39,12 +52,12 @@ const Sidebar: React.FC<{}> = () => (
         <ListItem button key={item.text}>
           <ListItemIcon>{item.icon}</ListItemIcon>
           <ListItemText>
-            <Typography>{item.text}</Typography>
+            <Typography color="inherit">{item.text}</Typography>
           </ListItemText>
         </ListItem>
       ))}
     </List>
-  </div>
+  </Drawer>
 );
 
-export default Sidebar;
+export default withStyles(styles, { withTheme: true })(Sidebar);
