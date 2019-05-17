@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, { FC } from 'react';
+import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -10,10 +11,14 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faHome, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUser,
+  faBriefcase,
+  faEnvelope,
+} from '@fortawesome/free-solid-svg-icons';
 import { withStyles, WithStyles } from '@material-ui/core/styles';
 
-library.add(fab, faHome, faEnvelope);
+library.add(fab, faUser, faBriefcase, faEnvelope);
 
 const styles = theme => ({
   drawerPaper: {
@@ -23,17 +28,31 @@ const styles = theme => ({
 
 interface SidebarItem {
   text: string;
+  path: string;
   icon: any;
 }
 
 const sidebarItems: SidebarItem[] = [
-  { text: 'Home', icon: <FontAwesomeIcon icon="home" /> },
-  { text: 'GitHub', icon: <FontAwesomeIcon icon={['fab', 'github']} /> },
-  { text: 'twitter', icon: <FontAwesomeIcon icon={['fab', 'twitter']} /> },
-  { text: 'Contact', icon: <FontAwesomeIcon icon="envelope" /> },
+  { text: 'uitspitss', path: 'about', icon: <FontAwesomeIcon icon="user" /> },
+  { text: 'Works', path: 'works', icon: <FontAwesomeIcon icon="briefcase" /> },
+  {
+    text: 'GitHub',
+    path: 'github',
+    icon: <FontAwesomeIcon icon={['fab', 'github']} />,
+  },
+  {
+    text: 'Twitter',
+    path: 'twitter',
+    icon: <FontAwesomeIcon icon={['fab', 'twitter']} />,
+  },
+  {
+    text: 'Contact',
+    path: 'contact',
+    icon: <FontAwesomeIcon icon="envelope" />,
+  },
 ];
 
-const Sidebar: React.FC<WithStyles> = ({ classes }) => (
+const Sidebar: FC<WithStyles> = ({ classes }) => (
   <Drawer
     classes={{
       paper: classes.drawerPaper,
@@ -49,12 +68,14 @@ const Sidebar: React.FC<WithStyles> = ({ classes }) => (
         </ListItemText>
       </ListItem>
       {sidebarItems.map(item => (
-        <ListItem button key={item.text}>
-          <ListItemIcon>{item.icon}</ListItemIcon>
-          <ListItemText>
-            <Typography color="inherit">{item.text}</Typography>
-          </ListItemText>
-        </ListItem>
+        <Link href={`/${item.path}`}>
+          <ListItem button key={item.text}>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText>
+              <Typography color="inherit">{item.text}</Typography>
+            </ListItemText>
+          </ListItem>
+        </Link>
       ))}
     </List>
   </Drawer>
