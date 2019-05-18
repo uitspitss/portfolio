@@ -10,7 +10,7 @@ const Hero: FC<{}> = () => (
       justify="center"
       alignItems="center"
     >
-      <Typography variant="h1" color="primary">
+      <Typography variant="h1" color="textPrimary">
         uitspitss's portfolio
       </Typography>
     </Grid>

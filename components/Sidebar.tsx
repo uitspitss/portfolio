@@ -33,24 +33,27 @@ interface SidebarItem {
 }
 
 const sidebarItems: SidebarItem[] = [
-  { text: 'uitspitss', path: 'about', icon: <FontAwesomeIcon icon="user" /> },
-  { text: 'Works', path: 'works', icon: <FontAwesomeIcon icon="briefcase" /> },
+  { text: 'uitspitss', path: '/about', icon: <FontAwesomeIcon icon="user" /> },
+  { text: 'Works', path: '/works', icon: <FontAwesomeIcon icon="briefcase" /> },
+  {
+    text: 'Contact',
+    path: '/contact',
+    icon: <FontAwesomeIcon icon="envelope" />,
+  },
+];
+
+const sidebarExternalItems: SidebarItem[] = [
   {
     text: 'GitHub',
-    path: 'github',
+    path: 'https://github.com/uitspitss?tab=repositories',
     icon: <FontAwesomeIcon icon={['fab', 'github']} />,
   },
   {
     text: 'Twitter',
-    path: 'twitter',
+    path: 'https://twitter.com/uitspitss',
     icon: <FontAwesomeIcon icon={['fab', 'twitter']} />,
   },
-  {
-    text: 'Contact',
-    path: 'contact',
-    icon: <FontAwesomeIcon icon="envelope" />,
-  },
-];
+]
 
 const Sidebar: FC<WithStyles> = ({ classes }) => (
   <Drawer
@@ -62,13 +65,15 @@ const Sidebar: FC<WithStyles> = ({ classes }) => (
   >
     <Divider />
     <List>
-      <ListItem>
-        <ListItemText>
-          <Typography variant={'h5'}>Portfolio</Typography>
-        </ListItemText>
-      </ListItem>
+      <Link href="/">
+        <ListItem>
+          <ListItemText>
+            <Typography variant={'h5'}>Portfolio</Typography>
+          </ListItemText>
+        </ListItem>
+      </Link>
       {sidebarItems.map(item => (
-        <Link href={`/${item.path}`}>
+        <Link href={`${item.path}`} key={item.path}>
           <ListItem button key={item.text}>
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText>
@@ -76,6 +81,16 @@ const Sidebar: FC<WithStyles> = ({ classes }) => (
             </ListItemText>
           </ListItem>
         </Link>
+      ))}
+      {sidebarExternalItems.map(item => (
+        <a href={`${item.path}`} key={item.path}>
+          <ListItem button key={item.text}>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText>
+              <Typography color="inherit">{item.text}</Typography>
+            </ListItemText>
+          </ListItem>
+        </a>
       ))}
     </List>
   </Drawer>

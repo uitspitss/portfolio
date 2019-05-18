@@ -1,17 +1,22 @@
-import * as React from 'react';
-import Link from 'next/link';
-import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
-import About from '../components/About';
+import BackImage from '../components/BackImage';
 import Sidebar from '../components/Sidebar';
+import FloatingPaper from '../components/FloatingPaper';
+import Document from '../md/about.mdx';
 
 const sidebarWidth = 150;
 
-const Home = () => (
+export default () => (
   <React.Fragment>
     <Sidebar />
     <div className="home-content">
-      <About />
+      <BackImage image="static/keyboard.jpg">
+        <FloatingPaper>
+          <Document />
+        </FloatingPaper>
+      </BackImage>
     </div>
     <style jsx>{`
       :global(.home-content) {
@@ -20,5 +25,3 @@ const Home = () => (
     `}</style>
   </React.Fragment>
 );
-
-export default Home;
