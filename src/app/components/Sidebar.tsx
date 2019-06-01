@@ -1,9 +1,14 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-// import Hidden from '@material-ui/core/Hidden';
+import Hidden from '@material-ui/core/Hidden';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -16,13 +21,41 @@ import {
   faBriefcase,
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
-import { withStyles, WithStyles } from '@material-ui/core/styles';
+import { withStyles, WithStyles, Theme } from '@material-ui/core/styles';
 
 library.add(fab, faUser, faBriefcase, faEnvelope);
 
-const styles = theme => ({
+const drawerWidth = 150;
+
+const styles = (theme: Theme) => ({
+  root: {
+    display: 'flex',
+  },
+  appBar: {
+    marginLeft: drawerWidth,
+    background: 'transparent',
+    boxShadow: 'none',
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+  },
+  menuButton: {
+    [theme.breakpoints.up('sm')]: {
+      display: 'none',
+    },
+  },
+  toolbar: theme.mixins.toolbar,
+  drawer: {
+    [theme.breakpoints.up('sm')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
   drawerPaper: {
-    width: 150,
+    width: drawerWidth,
+  },
+  content: {
+    flexGrow: 1,
   },
 });
 
@@ -55,45 +88,95 @@ const sidebarExternalItems: SidebarItem[] = [
   },
 ]
 
-const Sidebar: FC<WithStyles> = ({ classes }) => (
-  <Drawer
-    classes={{
-      paper: classes.drawerPaper,
-    }}
-    variant="permanent"
-    open
-  >
-    <Divider />
-    <List>
-      <Link href="/">
-        <ListItem>
-          <ListItemText>
-            <Typography variant={'h5'}>Portfolio</Typography>
-          </ListItemText>
-        </ListItem>
-      </Link>
-      {sidebarItems.map(item => (
-        <Link href={`${item.path}`} key={item.path}>
-          <ListItem button key={item.text}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
+const Sidebar: FC<WithStyles> = ({ classes, children }) => {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
+
+  const drawer = (
+    <div>
+      <Divider />
+      <List>
+        <Link href="/">
+          <ListItem>
             <ListItemText>
-              <Typography color="inherit">{item.text}</Typography>
+              <Typography variant={'h5'}>Portfolio</Typography>
             </ListItemText>
           </ListItem>
         </Link>
-      ))}
-      {sidebarExternalItems.map(item => (
-        <a href={`${item.path}`} key={item.path}>
-          <ListItem button key={item.text}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText>
-              <Typography color="inherit">{item.text}</Typography>
-            </ListItemText>
-          </ListItem>
-        </a>
-      ))}
-    </List>
-  </Drawer>
-);
+        {sidebarItems.map(item => (
+          <Link href={`${item.path}`} key={item.path}>
+            <ListItem button key={item.text}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText>
+                <Typography color="inherit">{item.text}</Typography>
+              </ListItemText>
+            </ListItem>
+          </Link>
+        ))}
+        {sidebarExternalItems.map(item => (
+          <a href={`${item.path}`} key={item.path}>
+            <ListItem button key={item.text}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText>
+                <Typography color="inherit">{item.text}</Typography>
+              </ListItemText>
+            </ListItem>
+          </a>
+        ))}
+      </List>
+    </div>
+  );
+
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="Open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <nav className={classes.drawer}>
+        <Hidden smUp implementation="css">
+          <Drawer
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            variant="permanent"
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+      </nav>
+      <main className={classes.content}>
+        {children}
+      </main>
+    </div>
+  );
+}
 
 export default withStyles(styles, { withTheme: true })(Sidebar);
