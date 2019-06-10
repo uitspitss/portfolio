@@ -1,5 +1,5 @@
 secrets:
-  - kmsKeyName: projects/$PROJECT_ID/locations/global/keyRings/portfolio/cryptoKeys/cloudbuild-env
+  - kmsKeyName: projects/portfolio-484df/locations/global/keyRings/portfolio/cryptoKeys/cloudbuild-env
     secretEnv:
       FIREBASE_TOKEN: CiQAyziYKUogWEqdqx9ahLuy7S3MxKb0ztMA9e5vFQwm2jlpZogSawAcPvIsuyACgAqDBLhX8Eq49YJ+HAV5w6UNWMT0xWYZkOr/VcII9tbuc2EEd6surS+Dfinj0aRQwTqLoFkmScDkapzNGkKzMKDvOPD1iYK3Q2YPSSABo8x6y1d+CzkGD9NsjgvvPgAtX93s
 
@@ -10,9 +10,9 @@ steps:
   # # Test
   # - name: "gcr.io/cloud-builders/npm"
   #   args: ["run", "test:unit"]
-  # Build
-  - name: "gcr.io/cloud-builders/npm"
-    args: ["run", "build"]
+  # # Build
+  # - name: "gcr.io/cloud-builders/npm"
+  #   args: ["run", "build"]
   # Deploy
   - name: "gcr.io/$PROJECT_ID/firebase"
     args: ["deploy"]
