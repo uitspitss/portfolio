@@ -11,12 +11,10 @@ const mdx = require('@zeit/next-mdx')({
 const typescript = require('@zeit/next-typescript');
 
 const nextConfig = {
-  distDir: '../../dist/functions/next'
+  distDir: '../../dist/functions/next',
 };
 
-module.exports = withPlugins([
-  [
-    typescript,
-    mdx({pageExtensions: ['js', 'jsx', 'mdx']}),
-  ]
-], nextConfig);
+module.exports = withPlugins(
+  [[typescript, mdx({ pageExtensions: ['mdx'] })]],
+  process.env.NODE_ENV === 'production' ? nextConfig : null,
+);
