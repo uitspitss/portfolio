@@ -1,5 +1,4 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 
 import BackImage from '../components/BackImage';
 import Sidebar from '../components/Sidebar';

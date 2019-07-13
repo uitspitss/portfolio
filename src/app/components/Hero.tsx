@@ -1,12 +1,27 @@
 import React, { FC } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-const Hero: FC<{}> = () => (
-  <div id="hero">
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    hero: {
+      height: '100vh',
+      backgroundImage: 'url("/static/little-happy.jpg")',
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+    },
+  }),
+);
+
+const Hero: FC = () => {
+  const classes = useStyles();
+
+  return (
     <Grid
-      className="hero-container"
       container
+      className={classes.hero}
       justify="center"
       alignItems="center"
     >
@@ -14,16 +29,7 @@ const Hero: FC<{}> = () => (
         uitspitss's portfolio
       </Typography>
     </Grid>
-    <style jsx>{`
-      :global(.hero-container) {
-        height: 100vh;
-        background-image: url('/static/little-happy.jpg');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-    `}</style>
-  </div>
-);
+  );
+};
 
 export default Hero;
