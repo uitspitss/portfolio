@@ -21,43 +21,45 @@ import {
   faBriefcase,
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
-import { withStyles, WithStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 library.add(fab, faUser, faBriefcase, faEnvelope);
 
 const drawerWidth = 150;
 
-const styles = (theme: Theme) => ({
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    marginLeft: drawerWidth,
-    background: 'transparent',
-    boxShadow: 'none',
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
     },
-  },
-  menuButton: {
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
+    appBar: {
+      marginLeft: drawerWidth,
+      background: 'transparent',
+      boxShadow: 'none',
+      [theme.breakpoints.up('sm')]: {
+        width: `calc(100% - ${drawerWidth}px)`,
+      },
     },
-  },
-  toolbar: theme.mixins.toolbar,
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
+    menuButton: {
+      [theme.breakpoints.up('sm')]: {
+        display: 'none',
+      },
+    },
+    toolbar: theme.mixins.toolbar,
+    drawer: {
+      [theme.breakpoints.up('sm')]: {
+        width: drawerWidth,
+        flexShrink: 0,
+      },
+    },
+    drawerPaper: {
       width: drawerWidth,
-      flexShrink: 0,
     },
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  content: {
-    flexGrow: 1,
-  },
-});
+    content: {
+      flexGrow: 1,
+    },
+  }),
+);
 
 interface SidebarItem {
   text: string;
@@ -86,11 +88,12 @@ const sidebarExternalItems: SidebarItem[] = [
     path: 'https://twitter.com/uitspitss',
     icon: <FontAwesomeIcon icon={['fab', 'twitter']} />,
   },
-]
+];
 
-const Sidebar: FC<WithStyles> = ({ classes, children }) => {
+const Sidebar: FC = ({ children }) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const classes = useStyles();
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   const drawer = (
@@ -172,11 +175,9 @@ const Sidebar: FC<WithStyles> = ({ classes, children }) => {
           </Drawer>
         </Hidden>
       </nav>
-      <main className={classes.content}>
-        {children}
-      </main>
+      <main className={classes.content}>{children}</main>
     </div>
   );
-}
+};
 
-export default withStyles(styles, { withTheme: true })(Sidebar);
+export default Sidebar;
