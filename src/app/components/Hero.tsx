@@ -5,7 +5,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    hero: {
+    root: {
       height: '100vh',
       backgroundImage: 'url("/static/little-happy.jpg")',
       backgroundPosition: 'center',
@@ -21,7 +21,7 @@ const Hero: FC = () => {
   return (
     <Grid
       container
-      className={classes.hero}
+      className={classes.root}
       justify="center"
       alignItems="center"
     >

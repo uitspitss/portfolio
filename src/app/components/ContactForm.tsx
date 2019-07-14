@@ -51,7 +51,7 @@ const ContactFrom: FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container direction="row" justify="center">
+      <Grid container justify="center" aliginItems="center">
         <Grid item xs={9} style={{ margin: 10 }}>
           <TextField
             name="email"

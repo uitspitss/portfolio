@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '60vw',
       padding: '20px 10px',
       background: 'rgba(255, 255, 255, 0.9)',
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('xs')]: {
         width: '80vw',
         marginLeft: '20vw',
       },
