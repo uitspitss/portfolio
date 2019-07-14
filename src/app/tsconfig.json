@@ -1,19 +1,12 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "jsx": "preserve",
-    "lib": ["dom", "es2018"],
+    "target": "es5",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "noEmit": true,
-    "noUnusedLocals": true,
+    "strict": true,
     "noUnusedParameters": true,
-    "preserveConstEnums": true,
-    "removeComments": false,
-    "skipLibCheck": true
-  }
+    "esModuleInterop": true,
+    "jsx": "react"
+  },
+  "include": ["pages/**/*", "layouts/**/*", "components/**/*"]
 }
