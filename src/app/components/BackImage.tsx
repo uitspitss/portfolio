@@ -1,41 +1,49 @@
 import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 
-interface BackImageProps {
-  children: React.ReactNode;
+interface StyleProps {
   image: string;
-  opacity?: number;
+  opacity: number;
 }
+
+const useStyles = makeStyles({
+  root: ({ image, opacity }: StyleProps) => ({
+    height: '100vh',
+    backgroundImage: `-webkit-linear-gradient(
+            top,
+            rgba(0, 0, 0, ${opacity}),
+            rgba(0, 0, 0, ${opacity})
+          ),
+          url(${image})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+  }),
+});
+
+type BackImageProps =
+  | {
+      children: React.ReactNode;
+    }
+  | StyleProps;
 
 const BackImage: FC<BackImageProps> = ({
   children,
   image = 'static/cover.jpg',
   opacity = 0.5,
-}) => (
-  <div id="backimage">
+}) => {
+  const classes = useStyles({ image, opacity });
+  return (
     <Grid
-      className="backimage-container"
+      className={classes.root}
       container
       justify="center"
       alignItems="center"
     >
       {children}
     </Grid>
-    <style jsx>{`
-      :global(.backimage-container) {
-        height: 100vh;
-        background-image: -webkit-linear-gradient(
-            top,
-            rgba(0, 0, 0, ${opacity}),
-            rgba(0, 0, 0, ${opacity})
-          ),
-          url(${image});
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
-    `}</style>
-  </div>
-);
+  );
+};
 
 export default BackImage;
