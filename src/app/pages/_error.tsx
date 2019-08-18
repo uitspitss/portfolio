@@ -1,5 +1,4 @@
 import React from 'react';
-import { NextContext } from 'next';
 import Head from 'next/head';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
 };
 
 class Error extends React.Component<Props> {
-  static async getInitialProps({ res }: NextContext): Promise<Props> {
+  static async getInitialProps({ res }): Promise<Props> {
     return {
       title: `Error: ${res!.statusCode}`,
       errorCode: res!.statusCode,

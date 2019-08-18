@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import axios from 'axios';
-import { useFormik, FormikBag } from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -27,10 +27,9 @@ const validationSchema = Yup.object().shape({
 const ContactFrom: FC = () => {
   const values = { email: '', text: '' };
 
-  const onSubmit = (values: FormValues, bag: FormikBag) => {
+  const onSubmit = (values: FormValues) => {
     setTimeout(() => {
       submit(values);
-      bag.setSubmitting(false);
     }, 1000);
   };
 
@@ -51,7 +50,7 @@ const ContactFrom: FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container justify="center" aliginItems="center">
+      <Grid container justify="center" alignItems="center">
         <Grid item xs={9} style={{ margin: 10 }}>
           <TextField
             name="email"

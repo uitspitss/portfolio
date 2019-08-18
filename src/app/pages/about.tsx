@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import BackImage from '../components/BackImage';
 import Sidebar from '../components/Sidebar';
