@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import Link from 'next/link';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -90,10 +90,10 @@ const sidebarExternalItems: SidebarItem[] = [
   },
 ];
 
-const Sidebar: FC = ({ children }) => {
+const Sidebar: React.FC = ({ children }) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const classes = useStyles();
+  const classes = useStyles({});
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   const drawer = (

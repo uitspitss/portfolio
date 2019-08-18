@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const FloatingPaper: FC = ({ children }) => {
-  const classes = useStyles();
+  const classes = useStyles({});
   return <Paper className={classes.root}>{children}</Paper>;
 };
 

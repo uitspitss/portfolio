@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       height: '100vh',
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Hero: FC = () => {
-  const classes = useStyles();
+  const classes = useStyles({});
 
   return (
     <Grid

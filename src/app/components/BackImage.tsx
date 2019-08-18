@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 interface StyleProps {
   image: string;
-  opacity: number;
+  opacity?: number;
 }
 
 const useStyles = makeStyles({
@@ -22,11 +22,9 @@ const useStyles = makeStyles({
   }),
 });
 
-type BackImageProps =
-  | {
-      children: React.ReactNode;
-    }
-  | StyleProps;
+type BackImageProps = {
+  children: React.ReactNode;
+} & StyleProps;
 
 const BackImage: FC<BackImageProps> = ({
   children,
