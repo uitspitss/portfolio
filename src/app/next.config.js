@@ -12,8 +12,8 @@ const nextConfig = {
   distDir: '../../dist/functions/next',
 };
 
-module.exports = withPlugins(
+module.exports = withPlugins([
   [
-    [withMDX]
+    withMDX
   ]
-);
+], nextConfig);
