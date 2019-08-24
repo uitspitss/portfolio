@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
@@ -9,14 +9,13 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: '20px 10px',
       background: 'rgba(255, 255, 255, 0.9)',
       [theme.breakpoints.down('xs')]: {
-        width: '80vw',
-        marginLeft: '20vw',
+        width: '100vw',
       },
     },
   }),
 );
 
-const FloatingPaper: FC = ({ children }) => {
+const FloatingPaper: React.FC = ({ children }) => {
   const classes = useStyles({});
   return <Paper className={classes.root}>{children}</Paper>;
 };

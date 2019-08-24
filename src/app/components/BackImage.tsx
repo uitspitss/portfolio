@@ -1,32 +1,37 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 interface StyleProps {
   image: string;
   opacity?: number;
 }
 
-const useStyles = makeStyles({
-  root: ({ image, opacity }: StyleProps) => ({
-    height: '100vh',
-    backgroundImage: `-webkit-linear-gradient(
-            top,
-            rgba(0, 0, 0, ${opacity}),
-            rgba(0, 0, 0, ${opacity})
-          ),
-          url(${image})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: ({ image, opacity }: StyleProps) => ({
+      height: '100vh',
+      backgroundImage: `-webkit-linear-gradient(
+              top,
+              rgba(0, 0, 0, ${opacity}),
+              rgba(0, 0, 0, ${opacity})
+            ),
+            url(${image})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      [theme.breakpoints.down('md')]: {
+        height: '100vh',
+      },
+    }),
   }),
-});
+);
 
 type BackImageProps = {
   children: React.ReactNode;
 } & StyleProps;
 
-const BackImage: FC<BackImageProps> = ({
+const BackImage: React.FC<BackImageProps> = ({
   children,
   image = 'static/cover.jpg',
   opacity = 0.5,
