@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -12,10 +12,17 @@ interface FormValues {
 }
 
 const submit = (values: FormValues) => {
-  axios.post('/api/contact', values).then(res => {
-    return res.status === 200;
-  });
+  if (process.env.NODE_ENV == 'development') {
+    console.log('sent email');
+    return true;
+  } else {
+    axios.post('/api/contact', values).then(res => {
+      return res.status === 200;
+    });
+  }
 };
+
+console.log(process.env.NODE_ENV);
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -24,12 +31,15 @@ const validationSchema = Yup.object().shape({
   text: Yup.string().required('Required'),
 });
 
-const ContactFrom: FC = () => {
-  const values = { email: '', text: '' };
+const ContactFrom: React.FC = () => {
+  const values: FormValues = { email: '', text: '' };
+  const [success, setSuccess] = React.useState(false);
 
   const onSubmit = (values: FormValues) => {
     setTimeout(() => {
-      submit(values);
+      const success = submit(values);
+      setSuccess(success);
+      console.log('test');
     }, 1000);
   };
 
@@ -79,10 +89,10 @@ const ContactFrom: FC = () => {
           <Button
             type="submit"
             variant="contained"
-            disabled={!isValid || isSubmitting}
+            disabled={!isValid || isSubmitting || success}
             color="primary"
           >
-            {isSubmitting ? 'sending...' : 'send'}
+            {success ? 'Thank you for your contact!' : 'submit'}
           </Button>
         </Grid>
       </Grid>
