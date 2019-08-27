@@ -39,7 +39,6 @@ const ContactFrom: React.FC = () => {
     setTimeout(() => {
       const success = submit(values);
       setSuccess(success);
-      console.log('test');
     }, 1000);
   };
 
