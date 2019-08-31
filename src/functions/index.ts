@@ -29,7 +29,7 @@ type MailPayload = {
   text: string;
 };
 
-const send = ({ email, text }: MailPayload) => {
+const send = async ({ email, text }: MailPayload) => {
   const from = email;
   const message = {
     from,
@@ -54,11 +54,12 @@ server.use(bodyParser.json());
 server.get('*', (req: Request, res: Response) => {
   return handle(req, res);
 });
-server.post('/api/contact', (req: Request, res: Response) => {
+
+server.post('/api/contact', async (req: Request, res: Response) => {
   const { email, text } = req.body;
-  console.log(req.body);
-  send({ email, text });
-  res.send('success');
+  const result = await send({ email, text });
+  console.log(result);
+  return res.sendStatus(200);
 });
 
 exports.next = functions.https.onRequest(

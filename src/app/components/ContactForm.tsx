@@ -11,18 +11,16 @@ interface FormValues {
   text: string;
 }
 
-const submit = (values: FormValues) => {
+const submit = async (values: FormValues) => {
   if (process.env.NODE_ENV == 'development') {
-    console.log('sent email');
+    console.log('submitted');
     return true;
   } else {
-    axios.post('/api/contact', values).then(res => {
-      return res.status === 200;
-    });
+    const result = await axios.post('/api/contact', values);
+    console.log(result);
+    return true;
   }
 };
-
-console.log(process.env.NODE_ENV);
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -36,8 +34,8 @@ const ContactFrom: React.FC = () => {
   const [success, setSuccess] = React.useState(false);
 
   const onSubmit = (values: FormValues) => {
-    setTimeout(() => {
-      const success = submit(values);
+    setTimeout(async () => {
+      const success = await submit(values);
       setSuccess(success);
     }, 1000);
   };
