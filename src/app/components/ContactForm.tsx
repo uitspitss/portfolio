@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -29,7 +29,7 @@ const validationSchema = Yup.object().shape({
   text: Yup.string().required('Required'),
 });
 
-const ContactFrom: React.FC = () => {
+const ContactFrom: FC = () => {
   const values: FormValues = { email: '', text: '' };
   const [success, setSuccess] = React.useState(false);
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
@@ -31,7 +31,7 @@ type BackImageProps = {
   children: React.ReactNode;
 } & StyleProps;
 
-const BackImage: React.FC<BackImageProps> = ({
+const BackImage: FC<BackImageProps> = ({
   children,
   image = 'static/cover.jpg',
   opacity = 0.5,
