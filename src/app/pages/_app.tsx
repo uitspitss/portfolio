@@ -1,11 +1,27 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
+import withReduxSaga from 'next-redux-saga';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../config/theme';
 
-class MyApp extends App {
+import theme from '../config/theme';
+import { configureStore } from '../store';
+
+interface Props {
+  store: any;
+}
+class MyApp extends App<Props> {
+  static async getInitialProps({ Component, ctx }) {
+    const pageProps = Component.getInitialProps
+      ? await Component.getInitialProps(ctx)
+      : {};
+
+    return { pageProps };
+  }
+
   componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -15,10 +31,10 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, store } = this.props;
 
     return (
-      <Container>
+      <Provider store={store}>
         <Head>
           <title>uitspitss's portfolio</title>
         </Head>
@@ -27,9 +43,9 @@ class MyApp extends App {
           <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
-      </Container>
+      </Provider>
     );
   }
 }
 
-export default MyApp;
+export default withRedux(configureStore)(withReduxSaga(MyApp));

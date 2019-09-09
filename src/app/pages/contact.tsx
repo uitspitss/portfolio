@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar';
 import FloatingPaper from '../components/FloatingPaper';
 import ContactForm from '../components/ContactForm';
 
-export default () => (
+const Contact = () => (
   <Sidebar>
     <BackImage image="static/keyboard.jpg">
       <FloatingPaper>
@@ -14,3 +14,5 @@ export default () => (
     </BackImage>
   </Sidebar>
 );
+
+export default Contact;

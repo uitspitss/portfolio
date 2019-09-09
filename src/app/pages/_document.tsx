@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/styles';
 import DefaultLayout from '../layouts/index';

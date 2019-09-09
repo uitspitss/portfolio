@@ -75,14 +75,14 @@ const sidebarItems: SidebarItem[] = [
     path: '/contact',
     icon: <FontAwesomeIcon icon="envelope" />,
   },
+  {
+    text: 'GitHub',
+    path: '/github',
+    icon: <FontAwesomeIcon icon={['fab', 'github']} />,
+  },
 ];
 
 const sidebarExternalItems: SidebarItem[] = [
-  {
-    text: 'GitHub',
-    path: 'https://github.com/uitspitss?tab=repositories',
-    icon: <FontAwesomeIcon icon={['fab', 'github']} />,
-  },
   {
     text: 'Twitter',
     path: 'https://twitter.com/uitspitss',
