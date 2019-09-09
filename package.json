@@ -42,6 +42,7 @@
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "remark-emoji": "^2.0.2",
     "remark-images": "^1.0.0",
     "yup": "^0.27.0"
@@ -85,7 +86,6 @@
     "prettier": "^1.16.4",
     "react-docgen-typescript-loader": "^3.2.0",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "redux-devtools-extension": "^2.13.8",
     "rimraf": "^3.0.0",
     "ts-node-dev": "^1.0.0-pre.42",
     "typescript": "^3.6.2",
