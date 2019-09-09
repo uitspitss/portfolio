@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import GridList from '@material-ui/core/GridList';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+
+import { Repo } from '../services/github/models';
+import GithubRepoCard from './GithubRepoCard';
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
       height: '100vh',
-      backgroundImage: 'url("/static/little-happy.jpg")',
+      backgroundImage: 'url("/static/keyboard.jpg")',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -15,7 +19,12 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const Hero: FC = () => {
+export interface ReposProps {
+  repos: Repo[];
+  isLoading?: boolean;
+}
+
+const Repos: FC<ReposProps> = ({ repos, isLoading }) => {
   const classes = useStyles({});
 
   return (
@@ -25,11 +34,15 @@ const Hero: FC = () => {
       justify="center"
       alignItems="center"
     >
-      <Typography variant="h1" color="textPrimary">
-        uitspitss's portfolio
+      <Typography variant="h2" component="h1">
+        My Repositories
       </Typography>
+      <GridList>
+        {repos &&
+          repos.map(repo => <GithubRepoCard repo={repo} key={repo.node_id} />)}
+      </GridList>
     </Grid>
   );
 };
 
-export default Hero;
+export default Repos;

@@ -27,16 +27,13 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-type BackImageProps = {
-  children: React.ReactNode;
-} & StyleProps;
-
-const BackImage: FC<BackImageProps> = ({
+const BackImage: FC<StyleProps> = ({
   children,
   image = 'static/cover.jpg',
   opacity = 0.5,
 }) => {
   const classes = useStyles({ image, opacity });
+
   return (
     <Grid
       className={classes.root}

@@ -14,10 +14,12 @@ interface FormValues {
 const submit = async (values: FormValues) => {
   if (process.env.NODE_ENV == 'development') {
     console.log('submitted');
+
     return true;
   } else {
     const result = await axios.post('/api/contact', values);
     console.log(result);
+
     return true;
   }
 };
