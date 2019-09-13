@@ -2,7 +2,9 @@ import React, { FC, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
+import BackImage from '../components/BackImage';
 import Sidebar from '../components/Sidebar';
+import FloatingPaper from '../components/FloatingPaper';
 import Repos, { ReposProps } from '../components/Github';
 import { Repo } from '../services/github/models';
 import { GithubState } from '../store/github';
@@ -34,7 +36,9 @@ const Github: FC<EnhancedReposProps> = ({
 
   return (
     <Sidebar>
-      <Repos repos={repos} isLoading={isLoading} />
+      <BackImage image="static/keyboard.jpg">
+        <Repos repos={repos} isLoading={isLoading} />
+      </BackImage>
     </Sidebar>
   );
 };

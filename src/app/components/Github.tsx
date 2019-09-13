@@ -9,13 +9,7 @@ import GithubRepoCard from './GithubRepoCard';
 
 const useStyles = makeStyles(() =>
   createStyles({
-    root: {
-      height: '100vh',
-      backgroundImage: 'url("/static/keyboard.jpg")',
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-    },
+    root: {},
   }),
 );
 
