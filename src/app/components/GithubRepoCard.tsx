@@ -13,7 +13,7 @@ import { Repo } from '../services/github/models';
 const useStyles = makeStyles(() =>
   createStyles({
     card: {
-      width: 500,
+      width: 420,
       margin: 20,
     },
   }),
