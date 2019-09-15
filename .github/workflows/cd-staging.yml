@@ -27,8 +27,7 @@ jobs:
         uses: jakejarvis/firebase-deploy-action@master
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_STAGING_TOKEN }}
-        with:
-          args: deploy
+          FIREBASE_PROJECT_ID: portfolio-staging-a316b
 
       - name: Slack notification
         uses: Ilshidur/action-slack@master
