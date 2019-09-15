@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "portfolio-484df"
+    "production": "portfolio-484df",
+    "staging": "portfolio-staging-a316b"
   }
 }

@@ -1,0 +1,23 @@
+name: CD (staging)
+on:
+  push:
+    branches:
+      - develop
+      - feature/gh_actions
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to staging
+        uses: jakejarvis/firebase-deploy-action@master
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_STAGING_TOKEN }}
+
+      - name: Slack notification
+        uses: Ilshidur/action-slack@master
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_USERNAME: Github Actions
+        with:
+          args: "A new commit has been deployed to staging."
