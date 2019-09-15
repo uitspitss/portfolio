@@ -11,6 +11,17 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@master
 
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "8.x"
+
+      - name: Install
+        run: yarn install
+
+      - name: Build
+        run: yarn predeploy
+
       - name: Deploy to staging
         uses: jakejarvis/firebase-deploy-action@master
         env:
