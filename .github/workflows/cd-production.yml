@@ -32,9 +32,10 @@ jobs:
           args: deploy
 
       - name: Slack notification
-        uses: Ilshidur/action-slack@master
+        uses: 8398a7/action-slack@v2
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: Github Actions
         with:
-          args: "A new commit has been deployed to production."
+          status: ${{ job.status }}
+        if: always()
