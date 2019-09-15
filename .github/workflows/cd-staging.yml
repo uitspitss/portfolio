@@ -23,13 +23,11 @@ jobs:
       - name: Build
         run: yarn predeploy
 
-      - name: Swith project
-        run: yarn use-staging
-
       - name: Deploy to staging
         uses: w9jds/firebase-action@master
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_STAGING_TOKEN }}
+          PROJECT_ID: portfolio-staging-a316b
 
       - name: Slack notification
         uses: Ilshidur/action-slack@master
