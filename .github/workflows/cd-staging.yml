@@ -14,7 +14,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: "8.x"
+          node-version: 8.x
 
       - name: Install
         run: yarn install
@@ -33,9 +33,9 @@ jobs:
 
       - name: Slack notification
         uses: 8398a7/action-slack@v2
+        if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
         with:
           status: ${{ job.status }}
-        if: always()
