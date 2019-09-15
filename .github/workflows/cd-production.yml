@@ -23,14 +23,19 @@ jobs:
         run: yarn predeploy
 
       - name: Deploy to staging
-        uses: jakejarvis/firebase-deploy-action@master
+        uses: w9jds/firebase-action@master
+        if: success()
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PROJECT_ID: portfolio-484df
+        with:
+          args: deploy
 
       - name: Slack notification
-        uses: Ilshidur/action-slack@master
+        uses: 8398a7/action-slack@v2
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_USERNAME: Github Actions
         with:
-          args: "A new commit has been deployed to production."
+          status: ${{ job.status }}
+        if: always()
