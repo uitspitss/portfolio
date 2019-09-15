@@ -1,4 +1,4 @@
-name: CD (staging)
+name: CD (production)
 on:
   push:
     branches:
@@ -12,7 +12,7 @@ jobs:
       - name: Deploy to staging
         uses: jakejarvis/firebase-deploy-action@master
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_STAGING_TOKEN }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
       - name: Slack notification
         uses: Ilshidur/action-slack@master
@@ -20,4 +20,4 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_USERNAME: Github Actions
         with:
-          args: "A new commit has been deployed to staging."
+          args: "A new commit has been deployed to production."
