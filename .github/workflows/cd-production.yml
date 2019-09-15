@@ -8,6 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+
       - name: Deploy to staging
         uses: jakejarvis/firebase-deploy-action@master
         env:
