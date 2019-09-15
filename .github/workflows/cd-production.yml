@@ -27,7 +27,7 @@ jobs:
         if: success()
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_ID: portfolio-484df
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
         with:
           args: deploy
 
