@@ -24,7 +24,7 @@ jobs:
         run: yarn predeploy
 
       - name: Deploy to staging
-        uses: jakejarvis/firebase-deploy-action@master
+        uses: w9jds/firebase-action@master
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_STAGING_TOKEN }}
 
