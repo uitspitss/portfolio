@@ -24,10 +24,11 @@ jobs:
         run: yarn predeploy
 
       - name: Deploy to staging
-        uses: w9jds/firebase-action@master
+        uses: jakejarvis/firebase-deploy-action@master
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_STAGING_TOKEN }}
-          PROJECT_ID: portfolio-staging-a316b
+        with:
+          args: deploy
 
       - name: Slack notification
         uses: Ilshidur/action-slack@master
