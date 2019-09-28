@@ -39,7 +39,7 @@ const GithubRepoCard: FC<GithubRepoCardProps> = ({ repo }) => {
       </CardContent>
       <CardActions>
         <Button href={repo.html_url} target="_blank" rel="noreferrer noopener">
-          kOpen In new tab <OpenInNew />
+          Open In new tab <OpenInNew />
         </Button>
       </CardActions>
     </Card>
