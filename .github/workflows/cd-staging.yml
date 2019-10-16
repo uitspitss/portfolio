@@ -16,12 +16,6 @@ jobs:
         with:
           node-version: 8.x
 
-      - name: Install
-        run: yarn install
-
-      - name: Build
-        run: yarn predeploy
-
       - name: Deploy to staging
         uses: w9jds/firebase-action@master
         if: success()
