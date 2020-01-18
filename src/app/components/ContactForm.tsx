@@ -42,31 +42,22 @@ const ContactFrom: FC = () => {
     }, 1000);
   };
 
-  const {
-    getFieldProps,
-    handleChange,
-    handleSubmit,
-    isValid,
-    isSubmitting,
-  } = useFormik({
+  const formik = useFormik({
     initialValues: values,
     validationSchema,
     onSubmit,
   });
 
-  const [email, metadataEmail] = getFieldProps('email', 'text');
-  const [text, metadataText] = getFieldProps('text', 'text');
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={formik.handleSubmit}>
       <Grid container justify="center" alignItems="center">
         <Grid item xs={9} style={{ margin: 10 }}>
           <TextField
             name="email"
             label="Email"
-            value={email.value}
-            onChange={handleChange}
-            helperText={metadataEmail.error}
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            helperText={formik.errors.email}
             placeholder="inpt your email!"
             style={{ width: '100%' }}
           />
@@ -75,9 +66,9 @@ const ContactFrom: FC = () => {
           <TextField
             name="text"
             label="Text"
-            value={text.value}
-            onChange={handleChange}
-            helperText={metadataText.error}
+            value={formik.values.text}
+            onChange={formik.handleChange}
+            helperText={formik.errors.text}
             placeholder="inpt your text!"
             multiline
             rows="5"
@@ -88,7 +79,7 @@ const ContactFrom: FC = () => {
           <Button
             type="submit"
             variant="contained"
-            disabled={!isValid || isSubmitting || success}
+            disabled={!formik.isValid || formik.isSubmitting || success}
             color="primary"
           >
             {success ? 'Thank you for your contact!' : 'submit'}
