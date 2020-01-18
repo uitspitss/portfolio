@@ -1,13 +1,17 @@
 import * as functions from 'firebase-functions';
 import next from 'next';
-
+import path from 'path';
 import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import nodemailer from 'nodemailer';
+
 const sgTransport = require('nodemailer-sendgrid-transport'); // FIXME: no types (ad hoc)
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev, conf: { distDir: 'next' } });
+// const dev = process.env.NODE_ENV !== 'production';
+const app = next({
+  dev: false,
+  conf: { distDir: `${path.relative(process.cwd(), __dirname)}/next` },
+});
 const handle = app.getRequestHandler();
 
 const config = functions.config();
