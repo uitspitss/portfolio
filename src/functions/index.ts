@@ -62,9 +62,9 @@ server.post('/api/contact', async (req: Request, res: Response) => {
   return res.sendStatus(200);
 });
 
-exports.next = functions
-  .region('asia-northeast1')
-  .https.onRequest(async (req: Request, res: Response) => {
+exports.next = functions.https.onRequest(
+  async (req: Request, res: Response) => {
     await app.prepare();
     return server(req, res);
-  });
+  },
+);
