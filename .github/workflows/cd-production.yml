@@ -4,6 +4,10 @@ on:
     branches:
       - master
 
+env:
+  SITE_URL: https://uitspitss.net
+  SLACK_CHANNEL: "#develop"
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -31,11 +35,38 @@ jobs:
         with:
           args: deploy
 
-      - name: Slack notification
-        uses: 8398a7/action-slack@v2
-        if: always()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Slack Notification
+        uses: homoluctus/slatify@master
+        if: failure() || cancelled()
         with:
-          status: ${{ job.status }}
+          type: ${{ job.status }}
+          job_name: "*Deploy to the site*"
+          mention: "here"
+          mention_if: "failure"
+          channel: ${{ env.SLACK_CHANNEL }}
+          url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          commit: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  ping_site:
+    runs-on: ubuntu-latest
+    name: Ping the site
+    steps:
+      - name: Check the site
+        uses: srt32/uptime@master
+        with:
+          url-to-hit: ${{ env.SITE_URL }}
+          expected-statuses: "200,301"
+
+      - name: Slack Notification
+        uses: homoluctus/slatify@master
+        if: always()
+        with:
+          type: ${{ job.status }}
+          job_name: "*Check the site ${{ env.SITE_URL }} *"
+          mention: "here"
+          mention_if: "failure"
+          channel: ${{ env.SLACK_CHANNEL }}
+          url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          commit: true
+          token: ${{ secrets.GITHUB_TOKEN }}
