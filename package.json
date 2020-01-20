@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next \"src/app/\"",
     "preserve": "npm run build-public && npm run build-funcs && npm run build-app && npm run copy-deps && npm run install-deps",
-    "serve": "cross-env NODE_ENV=production firebase serve",
+    "serve": "cross-env NODE_ENV=production firebase emulators:start --only functions,hosting",
     "predeploy": "npm run build-public && npm run build-funcs && npm run build-app && npm run copy-deps",
     "deploy": "firebase deploy",
     "clean": "rimraf \"dist/functions/**\" && rimraf \"dist/public\"",
