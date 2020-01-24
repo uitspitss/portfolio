@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 
+// next-mdx https://github.com/zeit/next.js/tree/canary/packages/next-mdx
 const images = require('remark-images');
 const emoji = require('remark-emoji');
 const withMDX = require('@zeit/next-mdx')({
@@ -8,12 +9,11 @@ const withMDX = require('@zeit/next-mdx')({
   },
 });
 
+// next-optimized-images https://github.com/cyrilwanner/next-optimized-images#configuration
+const withOptimzedImages = require('next-optimized-images');
+
 const nextConfig = {
   distDir: '../../dist/functions/next',
 };
 
-module.exports = withPlugins([
-  [
-    withMDX
-  ]
-], nextConfig);
+module.exports = withPlugins([[withMDX, withOptimzedImages]], nextConfig);
