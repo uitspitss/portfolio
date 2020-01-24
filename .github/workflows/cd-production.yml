@@ -49,6 +49,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
   ping_site:
+    needs: deploy
     runs-on: ubuntu-latest
     name: Ping the site
     steps:
