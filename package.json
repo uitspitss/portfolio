@@ -9,7 +9,7 @@
     "predeploy": "npm run build-public && npm run build-funcs && npm run build-app && npm run copy-deps",
     "deploy": "firebase deploy",
     "clean": "rimraf \"dist/functions/**\" && rimraf \"dist/public\"",
-    "build-public": "cpx \"src/public/**/*.*\" \"dist/public\" -C",
+    "build-public": "cpx \"src/public/**/*.*\" \"dist/public\" -C && cpx \"src/app/public/**/*.*\" \"dist/public\" -C",
     "build-funcs": "tsc --project \"src/functions\" && cpx \"src/functions/.runtimeconfig.json\" \"dist/functions\" -C",
     "build-app": "NODE_ENV=production next build \"src/app/\"",
     "postbuild-app": "cpx \"src/app/*\" \"dist/functions/static\" -C",
