@@ -36,7 +36,7 @@ const Github: FC<EnhancedReposProps> = ({
 
   return (
     <Sidebar>
-      <BackImage image="static/keyboard.jpg">
+      <BackImage image="keyboard.jpg">
         <Repos repos={repos} isLoading={isLoading} />
       </BackImage>
     </Sidebar>
