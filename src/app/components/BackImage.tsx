@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const BackImage: FC<StyleProps> = ({
   children,
-  image = 'cover.jpg',
+  image = '/images/cover.jpg',
   opacity = 0.5,
 }) => {
   const classes = useStyles({ image, opacity });

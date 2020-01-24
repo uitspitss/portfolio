@@ -7,7 +7,7 @@ import ContactForm from '../components/ContactForm';
 
 const Contact = () => (
   <Sidebar>
-    <BackImage image="keyboard.jpg">
+    <BackImage image="/images/keyboard.jpg">
       <FloatingPaper>
         <ContactForm />
       </FloatingPaper>

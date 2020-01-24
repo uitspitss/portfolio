@@ -7,7 +7,7 @@ import Document from '../md/about.mdx';
 
 const About = () => (
   <Sidebar>
-    <BackImage image="keyboard.jpg">
+    <BackImage image="/images/keyboard.jpg">
       <FloatingPaper>
         <Document />
       </FloatingPaper>

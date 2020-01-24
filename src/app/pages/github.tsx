@@ -36,7 +36,7 @@ const Github: FC<EnhancedReposProps> = ({
 
   return (
     <Sidebar>
-      <BackImage image="keyboard.jpg">
+      <BackImage image="/images/keyboard.jpg">
         <Repos repos={repos} isLoading={isLoading} />
       </BackImage>
     </Sidebar>
@@ -56,7 +56,4 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
     dispatch,
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Github);
+export default connect(mapStateToProps, mapDispatchToProps)(Github);

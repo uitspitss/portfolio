@@ -8,7 +8,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       height: '100vh',
-      backgroundImage: 'url("/little-happy.jpg")',
+      backgroundImage: 'url("/images/little-happy.jpg")',
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
