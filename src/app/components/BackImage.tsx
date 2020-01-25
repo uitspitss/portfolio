@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import bgImg from '../public/images/cover.jpg';
 
 interface StyleProps {
-  image: string;
+  image: any;
   opacity?: number;
 }
 
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const BackImage: FC<StyleProps> = ({
   children,
-  image = '/images/cover.jpg',
+  image = bgImg,
   opacity = 0.5,
 }) => {
   const classes = useStyles({ image, opacity });

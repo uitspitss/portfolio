@@ -9,6 +9,7 @@ import Repos, { ReposProps } from '../components/Github';
 import { Repo } from '../services/github/models';
 import { GithubState } from '../store/github';
 import { getRepos } from '../actions/github';
+import bgImg from '../public/images/keyboard.jpg';
 
 interface StateProps {
   github: {
@@ -36,7 +37,7 @@ const Github: FC<EnhancedReposProps> = ({
 
   return (
     <Sidebar>
-      <BackImage image="/images/keyboard.jpg">
+      <BackImage image={bgImg}>
         <Repos repos={repos} isLoading={isLoading} />
       </BackImage>
     </Sidebar>
