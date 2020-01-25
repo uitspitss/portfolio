@@ -3,12 +3,13 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { VFXProvider, VFXSpan } from 'react-vfx';
+import bgImg from '../public/images/little-happy.jpg';
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
       height: '100vh',
-      backgroundImage: 'url("/images/little-happy.jpg")',
+      backgroundImage: `url(${bgImg})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',

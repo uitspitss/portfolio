@@ -14,6 +14,13 @@ const withOptimzedImages = require('next-optimized-images');
 
 const nextConfig = {
   distDir: '../../dist/functions/next',
+  webpack: (config, options) => {
+    config.plugins = config.plugins || [];
+    config.plugins = [
+      ...config.plugins,
+    ]
+    return config;
+  },
 };
 
-module.exports = withPlugins([[withMDX, withOptimzedImages]], nextConfig);
+module.exports = withPlugins([[withMDX],[withOptimzedImages]], nextConfig);

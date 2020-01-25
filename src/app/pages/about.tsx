@@ -4,10 +4,11 @@ import BackImage from '../components/BackImage';
 import Sidebar from '../components/Sidebar';
 import FloatingPaper from '../components/FloatingPaper';
 import Document from '../md/about.mdx';
+import bgImg from '../public/images/keyboard.jpg';
 
 const About = () => (
   <Sidebar>
-    <BackImage image="/images/keyboard.jpg">
+    <BackImage image={bgImg}>
       <FloatingPaper>
         <Document />
       </FloatingPaper>
