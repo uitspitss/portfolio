@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import { VFXProvider, VFXSpan } from 'react-vfx';
 import bgImg from '../public/images/little-happy.jpg';
 
 const useStyles = makeStyles(() =>
@@ -21,18 +20,18 @@ const Hero: FC = () => {
   const classes = useStyles({});
 
   return (
-    <VFXProvider>
-      <Grid
-        container
-        className={classes.root}
-        justify="center"
-        alignItems="center"
-      >
-        <Typography variant="h1" color="textPrimary">
-          <VFXSpan shader="pixelate">uitspitss&#39;s portfolio</VFXSpan>
+    <Grid
+      container
+      className={classes.root}
+      justify="center"
+      alignItems="center"
+    >
+      <Grid item>
+        <Typography variant="h1" align="center" color="primary">
+          uitspitss&#39;s portfolio
         </Typography>
       </Grid>
-    </VFXProvider>
+    </Grid>
   );
 };
 

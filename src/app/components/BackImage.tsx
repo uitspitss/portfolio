@@ -11,7 +11,7 @@ interface StyleProps {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: ({ image, opacity }: StyleProps) => ({
-      minHeight: '100vh',
+      minHeight: 'max(100vh, 100%)',
       backgroundImage: `-webkit-linear-gradient(
               top,
               rgba(0, 0, 0, ${opacity}),
@@ -20,11 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
             url(${image})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
-      // backgroundAttachment: 'fixed',
       backgroundRepeat: 'no-repeat',
-      [theme.breakpoints.down('md')]: {
-        height: '100vh',
-      },
     }),
   }),
 );
