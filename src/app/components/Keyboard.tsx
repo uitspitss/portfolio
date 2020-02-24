@@ -47,7 +47,7 @@ const Keyboard: FC = () => {
           </Typography>
           <Typography variant="h6" align="center">
             <Link href="https://github.com/That-Canadian/MiniDox_PCB">
-              <a>PCB designed by u/That-Canadian</a>
+              PCB designed by u/That-Canadian
             </Link>
           </Typography>
           <VFXImg className={classes.image} src={kbdImg} shader="rainbow" />
