@@ -4,7 +4,6 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 import BackImage from '../components/BackImage';
 import Sidebar from '../components/Sidebar';
-import FloatingPaper from '../components/FloatingPaper';
 import Repos, { ReposProps } from '../components/Github';
 import { Repo } from '../services/github/models';
 import { GithubState } from '../store/github';

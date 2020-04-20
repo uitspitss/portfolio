@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 

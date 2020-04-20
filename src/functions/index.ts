@@ -63,12 +63,14 @@ server.post('/api/contact', async (req: Request, res: Response) => {
   const { email, text } = req.body;
   const result = await send({ email, text });
   console.log(result);
+
   return res.sendStatus(200);
 });
 
 exports.next = functions.https.onRequest(
   async (req: Request, res: Response) => {
     await app.prepare();
+
     return server(req, res);
   },
 );

@@ -8,7 +8,7 @@ import rootSaga from '../sagas';
 export type StoreState = ReturnType<typeof initialState>;
 export type ReduxStoreInstance = Store<StoreState>;
 
-const bindMiddleware = middleware => {
+const bindMiddleware = (middleware) => {
   if (process.env.NODE_ENV !== 'production') {
     return composeWithDevTools(applyMiddleware(...middleware));
   }
@@ -16,7 +16,7 @@ const bindMiddleware = middleware => {
   return applyMiddleware(...middleware);
 };
 
-export const configureStore = (state = initialState()) => {
+export const makeStore = (state = initialState()) => {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(reducer, state, bindMiddleware([sagaMiddleware]));
 
@@ -24,5 +24,3 @@ export const configureStore = (state = initialState()) => {
 
   return store;
 };
-
-export default configureStore;

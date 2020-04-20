@@ -1,7 +1,7 @@
-import { Reducer } from 'redux';
+import { Reducer, AnyAction } from 'redux';
 import { AxiosError } from 'axios';
 
-import { GithubAction } from '../../actions/github';
+// import { GithubAction } from '../../actions/github';
 import * as ActionType from '../../actions/githubConstants';
 import { Repo } from '../../services/github/models';
 
@@ -11,16 +11,16 @@ export type GithubState = {
   error?: AxiosError | null;
 };
 
-export const initialState = (injects?: GithubState) => ({
+export const initialState = () => ({
   repos: [],
   isLoading: false,
-  ...injects,
 });
 
-export const reducer: Reducer<GithubState, GithubAction> = (
-  state: GithubState = initialState(),
-  action: GithubAction,
-): GithubState => {
+// FIXME: AnyAction
+export const reducer: Reducer<GithubState, AnyAction> = (
+  state = initialState(),
+  action,
+) => {
   switch (action.type) {
     case ActionType.GET_REPOS_START:
       return {
@@ -41,9 +41,6 @@ export const reducer: Reducer<GithubState, GithubAction> = (
         error: action.payload.error,
       };
     default:
-      // eslint-disable-next-line no-case-declarations,@typescript-eslint/no-unused-vars
-      const _: never = action;
-
       return state;
   }
 };

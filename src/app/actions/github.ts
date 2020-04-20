@@ -12,17 +12,17 @@ interface GetReposResult {
 
 export const getRepos = {
   start: (params: GetReposParams) => ({
-    type: ActionType.GET_REPOS_START as typeof ActionType.GET_REPOS_START,
+    type: ActionType.GET_REPOS_START,
     payload: params,
   }),
 
   succeed: (params: GetReposParams, result: GetReposResult) => ({
-    type: ActionType.GET_REPOS_SUCCEED as typeof ActionType.GET_REPOS_SUCCEED,
+    type: ActionType.GET_REPOS_SUCCEED,
     payload: { params, result },
   }),
 
   fail: (params: GetReposParams, error: AxiosError) => ({
-    type: ActionType.GET_REPOS_FAIL as typeof ActionType.GET_REPOS_FAIL,
+    type: ActionType.GET_REPOS_FAIL,
     payload: { params, error },
     error: true,
   }),
