@@ -1,3 +1,4 @@
+import { AnyAction } from 'redux';
 import { AxiosError } from 'axios';
 
 import { Repo } from '../services/github/models';
@@ -29,6 +30,7 @@ export const getRepos = {
 };
 
 export type GithubAction =
+  | AnyAction
   | ReturnType<typeof getRepos.start>
   | ReturnType<typeof getRepos.succeed>
   | ReturnType<typeof getRepos.fail>;
