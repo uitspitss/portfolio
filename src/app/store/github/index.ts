@@ -1,7 +1,7 @@
-import { Reducer, AnyAction } from 'redux';
+import { Reducer } from 'redux';
 import { AxiosError } from 'axios';
 
-// import { GithubAction } from '../../actions/github';
+import { GithubAction } from '../../actions/github';
 import * as ActionType from '../../actions/githubConstants';
 import { Repo } from '../../services/github/models';
 
@@ -16,8 +16,7 @@ export const initialState = () => ({
   isLoading: false,
 });
 
-// FIXME: AnyAction
-export const reducer: Reducer<GithubState, AnyAction> = (
+export const reducer: Reducer<GithubState, GithubAction> = (
   state = initialState(),
   action,
 ) => {
