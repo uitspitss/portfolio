@@ -20,18 +20,14 @@ export const getReposFactory = (optionConfig?: ApiConfig) => {
   const instance = axios.create(config);
 
   const getRepos = async (userName: string) => {
-    try {
-      const response = await instance.get(`/users/${userName}/repos`);
+    const response = await instance.get(`/users/${userName}/repos`);
 
-      if (response.status !== 200) {
-        throw new Error('Server Error');
-      }
-      const repos: Repo[] = response.data;
-
-      return repos;
-    } catch (err) {
-      throw err;
+    if (response.status !== 200) {
+      throw new Error('Server Error');
     }
+    const repos: Repo[] = response.data;
+
+    return repos;
   };
 
   return getRepos;

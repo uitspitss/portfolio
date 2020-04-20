@@ -8,7 +8,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from '../config/theme';
-import { configureStore } from '../store';
+import { makeStore } from '../store';
 
 interface Props {
   store: any;
@@ -36,7 +36,7 @@ class MyApp extends App<Props> {
     return (
       <Provider store={store}>
         <Head>
-          <title>uitspitss's portfolio</title>
+          <title>uitspitss&apos;s portfolio</title>
         </Head>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -48,4 +48,4 @@ class MyApp extends App<Props> {
   }
 }
 
-export default withRedux(configureStore)(withReduxSaga(MyApp));
+export default withRedux(makeStore)(withReduxSaga(MyApp));

@@ -18,7 +18,7 @@ export interface ReposProps {
   isLoading?: boolean;
 }
 
-const Repos: FC<ReposProps> = ({ repos, isLoading }) => {
+const Repos: FC<ReposProps> = ({ repos }) => {
   const classes = useStyles({});
 
   return (
@@ -33,7 +33,9 @@ const Repos: FC<ReposProps> = ({ repos, isLoading }) => {
       </Typography>
       <GridList>
         {repos &&
-          repos.map(repo => <GithubRepoCard repo={repo} key={repo.node_id} />)}
+          repos.map((repo) => (
+            <GithubRepoCard repo={repo} key={repo.node_id} />
+          ))}
       </GridList>
     </Grid>
   );

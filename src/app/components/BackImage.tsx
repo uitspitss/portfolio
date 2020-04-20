@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 import bgImg from '../public/images/cover.jpg';
 
 interface StyleProps {
@@ -8,7 +8,7 @@ interface StyleProps {
   opacity?: number;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: ({ image, opacity }: StyleProps) => ({
       minHeight: 'max(100vh, 100%)',
