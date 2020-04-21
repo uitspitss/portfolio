@@ -28,15 +28,19 @@ const Repos: FC<ReposProps> = ({ repos }) => {
       justify="center"
       alignItems="center"
     >
-      <Typography variant="h2" component="h1">
-        My Repositories
-      </Typography>
-      <GridList>
-        {repos &&
-          repos.map((repo) => (
-            <GithubRepoCard repo={repo} key={repo.node_id} />
-          ))}
-      </GridList>
+      <Grid item xs={9}>
+        <Typography variant="h2" component="h1">
+          My Repositories
+        </Typography>
+      </Grid>
+      <Grid item xs={9}>
+        <GridList>
+          {repos &&
+            repos.map((repo) => (
+              <GithubRepoCard repo={repo} key={repo.node_id} />
+            ))}
+        </GridList>
+      </Grid>
     </Grid>
   );
 };
