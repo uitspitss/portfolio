@@ -101,31 +101,37 @@ const Sidebar: FC = ({ children }) => {
       <Divider />
       <List>
         <Link href="/">
-          <ListItem>
-            <ListItemText>
-              <Typography variant={'h5'}>Portfolio</Typography>
-            </ListItemText>
-          </ListItem>
-        </Link>
-        {sidebarItems.map(item => (
-          <Link href={`${item.path}`} key={item.path}>
-            <ListItem button key={item.text}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
+          <a>
+            <ListItem>
               <ListItemText>
-                <Typography color="inherit">{item.text}</Typography>
-              </ListItemText>
-            </ListItem>
-          </Link>
-        ))}
-        {sidebarExternalItems.map(item => (
-          <a href={`${item.path}`} key={item.path}>
-            <ListItem button key={item.text}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText>
-                <Typography color="inherit">{item.text}</Typography>
+                <Typography variant="h5">Portfolio</Typography>
               </ListItemText>
             </ListItem>
           </a>
+        </Link>
+        {sidebarItems.map((item) => (
+          <Link href={`${item.path}`} key={item.path}>
+            <a>
+              <ListItem button key={item.text}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText>
+                  <Typography color="inherit">{item.text}</Typography>
+                </ListItemText>
+              </ListItem>
+            </a>
+          </Link>
+        ))}
+        {sidebarExternalItems.map((item) => (
+          <Link href={`${item.path}`} key={item.path}>
+            <a>
+              <ListItem button key={item.text}>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText>
+                  <Typography color="inherit">{item.text}</Typography>
+                </ListItemText>
+              </ListItem>
+            </a>
+          </Link>
         ))}
       </List>
     </div>
