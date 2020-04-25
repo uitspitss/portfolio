@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import bgImg from '../public/images/cover.jpg';
 
 interface StyleProps {
   image: any;
@@ -25,11 +24,7 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const BackImage: FC<StyleProps> = ({
-  children,
-  image = bgImg,
-  opacity = 0.5,
-}) => {
+const BackImage: FC<StyleProps> = ({ children, image, opacity = 0.5 }) => {
   const classes = useStyles({ image, opacity });
 
   return (
