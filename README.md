@@ -6,7 +6,7 @@ My profile and works
 
 ## Web Site
 
-- [http://uitspitss.net/](https://uitspitss.net)
+- [http://uitspitss.net](https://uitspitss.net)
 
 ## Technical Stack keywords
 
