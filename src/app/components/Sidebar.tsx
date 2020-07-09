@@ -122,16 +122,14 @@ const Sidebar: FC = ({ children }) => {
           </Link>
         ))}
         {sidebarExternalItems.map((item) => (
-          <Link href={`${item.path}`} key={item.path}>
-            <a>
-              <ListItem button key={item.text}>
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText>
-                  <Typography color="inherit">{item.text}</Typography>
-                </ListItemText>
-              </ListItem>
-            </a>
-          </Link>
+          <a href={item.path} target="_blank" rel="noopener">
+            <ListItem button key={item.text}>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText>
+                <Typography color="inherit">{item.text}</Typography>
+              </ListItemText>
+            </ListItem>
+          </a>
         ))}
       </List>
     </div>
