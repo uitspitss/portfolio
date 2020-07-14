@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import Link from 'next/link';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
@@ -46,9 +45,13 @@ const Keyboard: FC = () => {
             Minidox
           </Typography>
           <Typography variant="h6" align="center">
-            <Link href="https://github.com/That-Canadian/MiniDox_PCB">
-              <a>PCB designed by u/That-Canadian</a>
-            </Link>
+            <a
+              href="https://github.com/That-Canadian/MiniDox_PCB"
+              target="_blank"
+              rel="noopener"
+            >
+              PCB designed by u/That-Canadian
+            </a>
           </Typography>
           <VFXImg className={classes.image} src={kbdImg} shader="rainbow" />
         </Grid>
