@@ -8,10 +8,12 @@ import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from '../config/theme';
-import { makeStore } from '../store';
+import { wrapper } from '../store';
 
 interface Props {
   store: any;
+  Component: any;
+  pageProps: any;
 }
 function MyApp(props: Props) {
   const { Component, pageProps } = props;
@@ -20,14 +22,14 @@ function MyApp(props: Props) {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles.parentElement!.removeChild(jssStyles);
     }
   }, []);
 
   return (
     <React.Fragment>
       <Head>
-        <title>uitspitss's portfolio</title>
+        <title>uitspitss&apos;s portfolio</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -42,4 +44,4 @@ function MyApp(props: Props) {
   );
 }
 
-export default withRedux(makeStore)(withReduxSaga(MyApp));
+export default wrapper.withRedux(MyApp);

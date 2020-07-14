@@ -5,6 +5,8 @@ export const initialState = () => ({
   github: Github.initialState(),
 });
 
-export const reducer = combineReducers({
+const reducer = combineReducers({
   github: Github.reducer,
 });
+
+export default reducer;
