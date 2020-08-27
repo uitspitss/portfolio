@@ -122,8 +122,8 @@ const Sidebar: FC = ({ children }) => {
           </Link>
         ))}
         {sidebarExternalItems.map((item) => (
-          <a href={item.path} target="_blank" rel="noopener">
-            <ListItem button key={item.text}>
+          <a href={item.path} target="_blank" rel="noopener" key={item.text}>
+            <ListItem button>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText>
                 <Typography color="inherit">{item.text}</Typography>
