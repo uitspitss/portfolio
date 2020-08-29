@@ -1,8 +1,5 @@
 import React from 'react';
-import App from 'next/app';
-import { Provider } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
-import withReduxSaga from 'next-redux-saga';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,14 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../config/theme';
 import { wrapper } from '../store';
 
-interface Props {
-  store: any;
-  Component: any;
-  pageProps: any;
-}
-function MyApp(props: Props) {
-  const { Component, pageProps } = props;
-
+const MyApp = ({ Component, pageProps }: AppProps) => {
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -42,6 +32,6 @@ function MyApp(props: Props) {
       </ThemeProvider>
     </React.Fragment>
   );
-}
+};
 
 export default wrapper.withRedux(MyApp);
