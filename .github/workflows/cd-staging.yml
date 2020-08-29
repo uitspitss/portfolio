@@ -50,14 +50,6 @@ jobs:
       #     commit: true
       #     token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Slack Notification
-        if: failure() || cancelled()
-        uses: rtCamp/action-slack-notify@master
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_TITLE: "*Deploy to the site*"
-          # SLACK_MESSAGE: "*Deploy to the site*"
-
   ping_site:
     needs: deploy
     runs-on: ubuntu-latest
@@ -81,11 +73,3 @@ jobs:
       #     url: ${{ secrets.SLACK_WEBHOOK_URL }}
       #     commit: true
       #     token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Slack Notification
-        if: always()
-        uses: rtCamp/action-slack-notify@master
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_TITLE: "*Check the site*"
-          SLACK_MESSAGE: "*${{ env.SITE_URL }} *"

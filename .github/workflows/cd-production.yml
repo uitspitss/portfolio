@@ -35,18 +35,19 @@ jobs:
         with:
           args: deploy
 
-      - name: Slack Notification
-        uses: homoluctus/slatify@master
-        if: failure() || cancelled()
-        with:
-          type: ${{ job.status }}
-          job_name: "*Deploy to the site*"
-          mention: "here"
-          mention_if: "failure"
-          channel: ${{ env.SLACK_CHANNEL }}
-          url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          commit: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # degraded
+      # - name: Slack Notification
+      #   uses: homoluctus/slatify@master
+      #   if: failure() || cancelled()
+      #   with:
+      #     type: ${{ job.status }}
+      #     job_name: "*Deploy to the site*"
+      #     mention: "here"
+      #     mention_if: "failure"
+      #     channel: ${{ env.SLACK_CHANNEL }}
+      #     url: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #     commit: true
+      #     token: ${{ secrets.GITHUB_TOKEN }}
 
   ping_site:
     needs: deploy
@@ -59,15 +60,16 @@ jobs:
           url-to-hit: ${{ env.SITE_URL }}
           expected-statuses: "200,301"
 
-      - name: Slack Notification
-        uses: homoluctus/slatify@master
-        if: always()
-        with:
-          type: ${{ job.status }}
-          job_name: "*Check the site ${{ env.SITE_URL }} *"
-          mention: "here"
-          mention_if: "failure"
-          channel: ${{ env.SLACK_CHANNEL }}
-          url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          commit: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # degraded
+      # - name: Slack Notification
+      #   uses: homoluctus/slatify@master
+      #   if: always()
+      #   with:
+      #     type: ${{ job.status }}
+      #     job_name: "*Check the site ${{ env.SITE_URL }} *"
+      #     mention: "here"
+      #     mention_if: "failure"
+      #     channel: ${{ env.SLACK_CHANNEL }}
+      #     url: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #     commit: true
+      #     token: ${{ secrets.GITHUB_TOKEN }}
