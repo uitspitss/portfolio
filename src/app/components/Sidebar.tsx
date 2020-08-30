@@ -70,11 +70,11 @@ interface SidebarItem {
 const sidebarItems: SidebarItem[] = [
   { text: 'uitspitss', path: '/about', icon: <FontAwesomeIcon icon="user" /> },
   { text: 'Works', path: '/works', icon: <FontAwesomeIcon icon="briefcase" /> },
-  {
-    text: 'Contact',
-    path: '/contact',
-    icon: <FontAwesomeIcon icon="envelope" />,
-  },
+  // {
+  //   text: 'Contact',
+  //   path: '/contact',
+  //   icon: <FontAwesomeIcon icon="envelope" />,
+  // },
   {
     text: 'GitHub',
     path: '/github',
