@@ -21,11 +21,24 @@ jobs:
         with:
           node-version: 10.x
 
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        id: cache
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Install
         run: yarn install
 
       - name: Build
-        run: yarn predeploy
+        # run: yarn predeploy
+        run: yarn build-app
+
+      - name: export
+        run: yarn export
 
       - name: Deploy to staging
         uses: w9jds/firebase-action@master
@@ -34,7 +47,8 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           PROJECT_ID: ${{ secrets.STAGING_PROJECT_ID }}
         with:
-          args: deploy
+          args: deploy --only hosting
+
 
       # degraded
       # - name: Slack Notification
