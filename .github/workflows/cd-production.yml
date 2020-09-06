@@ -37,7 +37,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           PROJECT_ID: ${{ secrets.PROJECT_ID }}
         with:
-          args: deploy
+          args: deploy --only hosting
 
 
       # degraded
