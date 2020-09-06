@@ -34,11 +34,7 @@ jobs:
         run: yarn install
 
       - name: Build
-        # run: yarn predeploy
-        run: yarn build-app
-
-      - name: export
-        run: yarn export
+        run: yarn predeploy
 
       - name: Deploy to staging
         uses: w9jds/firebase-action@master
@@ -48,7 +44,6 @@ jobs:
           PROJECT_ID: ${{ secrets.STAGING_PROJECT_ID }}
         with:
           args: deploy --only hosting
-
 
       # degraded
       # - name: Slack Notification

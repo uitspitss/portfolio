@@ -1,10 +1,26 @@
 {
   "hosting": {
-    "public": "dist/public",
+    "public": "src/app/out",
     "rewrites": [
       {
-        "source": "**/**",
-        "function": "next"
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/about",
+        "destination": "/about.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      },
+      {
+        "source": "/works",
+        "destination": "/works.html"
+      },
+      {
+        "source": "/github",
+        "destination": "/github.html"
       }
     ]
   },
