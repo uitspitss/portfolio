@@ -25,9 +25,7 @@ const submit = async (values: FormValues) => {
 };
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .required('Required')
-    .email(),
+  email: Yup.string().required('Required').email(),
   text: Yup.string().required('Required'),
 });
 

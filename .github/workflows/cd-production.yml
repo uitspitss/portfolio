@@ -24,8 +24,7 @@ jobs:
         run: yarn install
 
       - name: Build
-        # run: yarn predeploy
-        run: yarn build-app
+        run: yarn predeploy
 
       - name: export
         run: yarn export
