@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next \"src/app/\"",
     "preserve": "npm run build-funcs && npm run build-app && npm run export && npm run copy-deps && npm run install-deps",
+    "predeploy": "npm run build-funcs && npm run build-app && npm run export && npm run copy-deps",
     "serve": "NODE_ENV=production cross-env firebase emulators:start --only hosting,functions",
-    "predeploy": "npm run build-funcs && npm run build-app && npm run copy-deps",
     "deploy": "firebase deploy",
     "export": "next export \"src/app\"",
     "clean": "rimraf \"dist/functions/**\"",
