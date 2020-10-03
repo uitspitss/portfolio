@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux';
 import { AxiosError } from 'axios';
 
-import { Repo } from '../services/github/models';
+import { Repo } from '@/services/github/models';
 import * as ActionType from './githubConstants';
 
 interface GetReposParams {

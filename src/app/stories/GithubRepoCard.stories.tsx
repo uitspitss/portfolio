@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import GithubRepoCard from '../components/GithubRepoCard';
-import { Repo } from '../services/github/models';
+import GithubRepoCard from '@/components/GithubRepoCard';
+import { Repo } from '@/services/github/models';
 
 const repo: Repo = {
   id: 175907444,

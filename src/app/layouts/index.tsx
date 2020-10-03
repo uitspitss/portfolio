@@ -1,6 +1,6 @@
 import React from 'react';
 import { Head, Main, NextScript } from 'next/document';
-import theme from '../config/theme';
+import theme from '@/config/theme';
 
 export default () => (
   <html lang="en">

@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import { createWrapper } from 'next-redux-wrapper';
 
 import rootReducer, {initialState} from './reducer';
-import rootSaga from '../sagas';
+import rootSaga from '@/sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 export type StoreState = ReturnType<typeof initialState>;

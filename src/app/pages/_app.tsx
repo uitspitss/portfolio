@@ -4,8 +4,8 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import theme from '../config/theme';
-import { wrapper } from '../store';
+import theme from '@/config/theme';
+import { wrapper } from '@/store';
 
 const App = ({ Component, pageProps }: AppProps) => {
   React.useEffect(() => {

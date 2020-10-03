@@ -1,5 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '@/components/Sidebar';
 
 storiesOf('Components', module).add('Sidebar', () => <Sidebar />);

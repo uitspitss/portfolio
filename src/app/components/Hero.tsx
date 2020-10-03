@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import bgImg from '../public/images/little-happy.jpg';
+import bgImg from '@/public/images/little-happy.jpg';
 
 const useStyles = makeStyles(() =>
   createStyles({

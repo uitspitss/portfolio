@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import * as Action from '../actions/githubConstants';
-import { getRepos } from '../actions/github';
-import { getReposFactory } from '../services/github/api';
+import * as Action from '@/actions/githubConstants';
+import { getRepos } from '@/actions/github';
+import { getReposFactory } from '@/services/github/api';
 
 function* runGetRepos(action: ReturnType<typeof getRepos.start>) {
   const { userName } = action.payload;

@@ -8,7 +8,7 @@ import Chip from '@material-ui/core/Chip';
 import OpenInNew from '@material-ui/icons/OpenInNew';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-import { Repo } from '../services/github/models';
+import { Repo } from '@/services/github/models';
 
 const useStyles = makeStyles(() =>
   createStyles({
