@@ -13,17 +13,15 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import {
   faUser,
   faBriefcase,
   faEnvelope,
+  faLaptopCode,
 } from '@fortawesome/free-solid-svg-icons';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-
-library.add(fab, faUser, faBriefcase, faEnvelope);
 
 const drawerWidth = 150;
 
@@ -64,21 +62,34 @@ const useStyles = makeStyles((theme: Theme) =>
 interface SidebarItem {
   text: string;
   path: string;
-  icon: any;
+  icon: JSX.Element;
 }
 
 const sidebarItems: SidebarItem[] = [
-  { text: 'uitspitss', path: '/about', icon: <FontAwesomeIcon icon="user" /> },
-  { text: 'Works', path: '/works', icon: <FontAwesomeIcon icon="briefcase" /> },
+  {
+    text: 'uitspitss',
+    path: '/about',
+    icon: <FontAwesomeIcon icon={faUser} />,
+  },
+  {
+    text: 'Works',
+    path: '/works',
+    icon: <FontAwesomeIcon icon={faBriefcase} />,
+  },
+  {
+    text: 'Hobby Works',
+    path: '/hobby-works',
+    icon: <FontAwesomeIcon icon={faLaptopCode} />,
+  },
   {
     text: 'Contact',
     path: '/contact',
-    icon: <FontAwesomeIcon icon="envelope" />,
+    icon: <FontAwesomeIcon icon={faEnvelope} />,
   },
   {
     text: 'GitHub',
     path: '/github',
-    icon: <FontAwesomeIcon icon={['fab', 'github']} />,
+    icon: <FontAwesomeIcon icon={faGithub} />,
   },
 ];
 
@@ -86,7 +97,7 @@ const sidebarExternalItems: SidebarItem[] = [
   {
     text: 'Twitter',
     path: 'https://twitter.com/uitspitss',
-    icon: <FontAwesomeIcon icon={['fab', 'twitter']} />,
+    icon: <FontAwesomeIcon icon={faTwitter} />,
   },
 ];
 

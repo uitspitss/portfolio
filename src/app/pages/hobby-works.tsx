@@ -4,10 +4,10 @@ import { NextPage } from 'next';
 import BackImage from '../components/BackImage';
 import Sidebar from '../components/Sidebar';
 import FloatingPaper from '../components/FloatingPaper';
-import Document from '../md/works.mdx';
+import Document from '../md/hobby-works.mdx';
 import bgImg from '../public/images/keyboard.jpg';
 
-const Works: NextPage = () => (
+const HobbyWorks: NextPage = () => (
   <Sidebar>
     <BackImage image={bgImg}>
       <FloatingPaper>
@@ -17,4 +17,4 @@ const Works: NextPage = () => (
   </Sidebar>
 );
 
-export default Works;
+export default HobbyWorks;
