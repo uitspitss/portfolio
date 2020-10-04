@@ -1,7 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import GithubRepoCard from '@/components/GithubRepoCard';
-import { Repo } from '@/services/github/models';
+import React, { FC } from 'react';
+import { Meta } from '@storybook/react';
+
+import GithubRepoCard from '../components/GithubRepoCard';
+import { Repo } from '../services/github/models';
 
 const repo: Repo = {
   id: 175907444,
@@ -24,6 +25,8 @@ const repo: Repo = {
   license: null,
 };
 
-storiesOf('Components', module).add('GithubRepoCard', () => (
-  <GithubRepoCard repo={repo} />
-));
+export default {
+  title: 'Components/GithubRepoCard',
+} as Meta;
+
+export const WithData: FC = () => <GithubRepoCard repo={repo} />;
