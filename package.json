@@ -16,7 +16,8 @@
     "postbuild-app": "cpx \"src/app/*\" \"dist/functions/static\" -C",
     "copy-deps": "cpx \"*{package.json,package-lock.json,yarn.lock}\" \"dist/functions\" -C",
     "install-deps": "cd \"dist/functions\" && npm i",
-    "storybook": "start-storybook -s ./src/app -p 6006",
+    "storybook": "start-storybook -s ./src/app",
+    "storybook:build": "build-storybook -s ./src/app -p 6006",
     "use-staging": "firebase use staging",
     "use-production": "firebase use production"
   },
