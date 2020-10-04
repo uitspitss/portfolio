@@ -1,5 +1,12 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Sidebar from '@/components/Sidebar';
+import React, { FC } from 'react';
+import { Meta } from '@storybook/react';
 
-storiesOf('Components', module).add('Sidebar', () => <Sidebar />);
+import Sidebar from '../components/Sidebar';
+
+export default {
+  title: 'Components/Sidebar',
+  component: Sidebar,
+  argTypes: { onClick: { action: 'clicked' } },
+} as Meta;
+
+export const Default: FC = () => <Sidebar />;
