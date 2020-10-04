@@ -1,11 +1,11 @@
 import React from 'react';
 import { NextPage } from 'next';
 
-import BackImage from '../components/BackImage';
-import Sidebar from '../components/Sidebar';
-import FloatingPaper from '../components/FloatingPaper';
-import Document from '../md/hobby-works.mdx';
-import bgImg from '../public/images/keyboard.jpg';
+import BackImage from '@/components/BackImage';
+import Sidebar from '@/components/Sidebar';
+import FloatingPaper from '@/components/FloatingPaper';
+import Document from '@/md/hobby-works.mdx';
+import bgImg from '@/public/images/keyboard.jpg';
 
 const HobbyWorks: NextPage = () => (
   <Sidebar>

@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-import { Repo } from '../services/github/models';
+import { Repo } from '@/services/github/models';
 import GithubRepoCard from './GithubRepoCard';
 
 const useStyles = makeStyles(() =>

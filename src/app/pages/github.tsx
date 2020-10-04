@@ -2,13 +2,13 @@ import React, { FC, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import BackImage from '../components/BackImage';
-import Sidebar from '../components/Sidebar';
-import Repos, { ReposProps } from '../components/Github';
-import { Repo } from '../services/github/models';
-import { GithubState } from '../store/github';
-import { getRepos } from '../actions/github';
-import bgImg from '../public/images/keyboard.jpg';
+import BackImage from '@/components/BackImage';
+import Sidebar from '@/components/Sidebar';
+import Repos, { ReposProps } from '@/components/Github';
+import { Repo } from '@/services/github/models';
+import { GithubState } from '@/store/github';
+import { getRepos } from '@/actions/github';
+import bgImg from '@/public/images/keyboard.jpg';
 
 interface StateProps {
   github: {

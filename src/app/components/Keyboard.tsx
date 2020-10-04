@@ -3,8 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { VFXProvider, VFXImg } from 'react-vfx';
-import bgImg from '../public/images/bg_keyboard.jpg';
-import kbdImg from '../public/images/minidox.png';
+import bgImg from '@/public/images/bg_keyboard.jpg';
+import kbdImg from '@/public/images/minidox.png';
 
 const useStyles = makeStyles(() =>
   createStyles({
