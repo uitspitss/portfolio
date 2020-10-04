@@ -25,7 +25,7 @@
       {
         "source": "/github",
         "destination": "/github.html"
-      }),
+      },
       {
         "source": "/api/**",
         "function": "next"
