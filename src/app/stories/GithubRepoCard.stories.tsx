@@ -27,6 +27,7 @@ const repo: Repo = {
 
 export default {
   title: 'Components/GithubRepoCard',
+  component: GithubRepoCard,
 } as Meta;
 
 export const WithData: FC = () => <GithubRepoCard repo={repo} />;

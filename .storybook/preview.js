@@ -1,4 +1,9 @@
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+
 export const parameters = {
+  viewport: {
+    viewports: INITIAL_VIEWPORTS
+  },
   options: {
     storySort: (a, b) => {
       // We want the Welcome story at the top
