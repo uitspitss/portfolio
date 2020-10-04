@@ -19,9 +19,13 @@
         "destination": "/works.html"
       },
       {
+        "source": "/hobby-works",
+        "destination": "/hobby-works.html"
+      },
+      {
         "source": "/github",
         "destination": "/github.html"
-      },
+      }),
       {
         "source": "/api/**",
         "function": "next"
