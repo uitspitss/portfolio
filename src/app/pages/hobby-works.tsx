@@ -7,7 +7,7 @@ import FloatingPaper from '@/components/FloatingPaper';
 import Document from '@/md/hobby-works.mdx';
 import bgImg from '@/public/images/keyboard.jpg';
 
-const HobbyWorks: NextPage = () => (
+const HobbyWorksPage: NextPage = () => (
   <Sidebar>
     <BackImage image={bgImg}>
       <FloatingPaper>
@@ -17,4 +17,4 @@ const HobbyWorks: NextPage = () => (
   </Sidebar>
 );
 
-export default HobbyWorks;
+export default HobbyWorksPage;

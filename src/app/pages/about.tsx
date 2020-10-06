@@ -1,4 +1,5 @@
 import React from 'react';
+import { NextPage } from 'next';
 
 import BackImage from '@/components/BackImage';
 import Sidebar from '@/components/Sidebar';
@@ -6,7 +7,7 @@ import FloatingPaper from '@/components/FloatingPaper';
 import Document from '@/md/about.mdx';
 import bgImg from '@/public/images/keyboard.jpg';
 
-const About = () => (
+const AboutPage: NextPage = () => (
   <Sidebar>
     <BackImage image={bgImg}>
       <FloatingPaper>
@@ -16,4 +17,4 @@ const About = () => (
   </Sidebar>
 );
 
-export default About;
+export default AboutPage;

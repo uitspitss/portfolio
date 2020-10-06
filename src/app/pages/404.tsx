@@ -1,5 +1,7 @@
 import React from 'react';
+import { NextPage } from 'next';
+import Error from 'next/error';
 
-const Custom404 = () => <h1>404 - Page Not Found</h1>;
+const ErrorPage: NextPage = () => <Error statusCode={404} />;
 
-export default Custom404;
+export default ErrorPage;

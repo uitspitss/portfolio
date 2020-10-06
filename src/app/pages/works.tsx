@@ -7,7 +7,7 @@ import FloatingPaper from '@/components/FloatingPaper';
 import Document from '@/md/works.mdx';
 import bgImg from '@/public/images/keyboard.jpg';
 
-const Works: NextPage = () => (
+const WorksPage: NextPage = () => (
   <Sidebar>
     <BackImage image={bgImg}>
       <FloatingPaper>
@@ -17,4 +17,4 @@ const Works: NextPage = () => (
   </Sidebar>
 );
 
-export default Works;
+export default WorksPage;
