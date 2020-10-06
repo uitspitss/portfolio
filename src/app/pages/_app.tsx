@@ -7,7 +7,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '@/config/theme';
 import { wrapper } from '@/store';
 
-const App = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>uitspitss&apos;s portfolio</title>
         <meta
@@ -30,8 +30,8 @@ const App = ({ Component, pageProps }: AppProps) => {
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </React.Fragment>
+    </>
   );
 };
 
-export default wrapper.withRedux(App);
+export default wrapper.withRedux(MyApp);
