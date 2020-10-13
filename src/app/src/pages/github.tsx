@@ -8,7 +8,7 @@ import Repos, { ReposProps } from '@/components/Github';
 import { Repo } from '@/services/github/models';
 import { GithubState } from '@/store/github';
 import { getRepos } from '@/actions/github';
-import bgImg from '@/public/images/keyboard.jpg';
+import bgImg from '@public/images/keyboard.jpg';
 
 interface StateProps {
   github: {

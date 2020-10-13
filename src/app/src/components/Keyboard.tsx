@@ -3,8 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { VFXProvider, VFXImg } from 'react-vfx';
-import bgImg from '@/public/images/bg_keyboard.jpg';
-import kbdImg from '@/public/images/minidox.png';
+import bgImg from '@public/images/bg_keyboard.jpg';
+import kbdImg from '@public/images/minidox.png';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -25,6 +25,7 @@ const useStyles = makeStyles(() =>
     },
   }),
 );
+
 
 const Keyboard: FC = () => {
   const classes = useStyles({});
@@ -48,7 +49,7 @@ const Keyboard: FC = () => {
             <a
               href="https://github.com/That-Canadian/MiniDox_PCB"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               PCB designed by u/That-Canadian
             </a>
