@@ -7,11 +7,9 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import { Repo } from '@/services/github/models';
 import GithubRepoCard from './GithubRepoCard';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {},
-  }),
-);
+const useStyles = makeStyles(() => createStyles({
+  root: {},
+}));
 
 export interface ReposProps {
   repos: Repo[];
@@ -35,8 +33,8 @@ const Repos: FC<ReposProps> = ({ repos }) => {
       </Grid>
       <Grid item xs={9}>
         <GridList>
-          {repos &&
-            repos.map((repo) => (
+          {repos
+            && repos.map((repo) => (
               <GithubRepoCard repo={repo} key={repo.node_id} />
             ))}
         </GridList>

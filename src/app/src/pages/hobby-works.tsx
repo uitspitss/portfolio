@@ -4,17 +4,17 @@ import { NextPage } from 'next';
 import BackImage from '@/components/BackImage';
 import Sidebar from '@/components/Sidebar';
 import FloatingPaper from '@/components/FloatingPaper';
-import ContactForm from '@/components/ContactForm';
-import bgImg from '@/public/images/keyboard.jpg';
+import Document from '@/md/hobby-works.mdx';
+import bgImg from '@public/images/keyboard.jpg';
 
-const ContactPage: NextPage = () => (
+const HobbyWorksPage: NextPage = () => (
   <Sidebar>
     <BackImage image={bgImg}>
       <FloatingPaper>
-        <ContactForm />
+        <Document />
       </FloatingPaper>
     </BackImage>
   </Sidebar>
 );
 
-export default ContactPage;
+export default HobbyWorksPage;

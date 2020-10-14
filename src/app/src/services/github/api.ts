@@ -12,6 +12,7 @@ const DEFAULT_API_CONFIG: ApiConfig = {
   timeout: 7000,
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const getReposFactory = (optionConfig?: ApiConfig) => {
   const config = {
     ...DEFAULT_API_CONFIG,
