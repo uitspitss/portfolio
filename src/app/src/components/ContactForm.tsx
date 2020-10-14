@@ -16,12 +16,10 @@ const submit = async (values: FormValues) => {
     console.log('submitted');
 
     return true;
-  } else {
-    const result = await axios.post('/api/contact', values);
-    console.log(result);
-
-    return true;
   }
+  const result = await axios.post('/api/contact', values);
+
+  return true;
 };
 
 const validationSchema = Yup.object().shape({
