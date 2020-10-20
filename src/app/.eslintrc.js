@@ -11,7 +11,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    ecmaFeature: {
+    ecmaFeatures: {
       jsx: true,
     },
   },
