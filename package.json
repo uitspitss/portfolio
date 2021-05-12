@@ -44,7 +44,7 @@
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.2",
     "next-redux-wrapper": "^6.0.2",
-    "nodemailer": "^6.4.13",
+    "nodemailer": "^6.4.16",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
